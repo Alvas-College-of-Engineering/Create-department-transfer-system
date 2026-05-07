@@ -1,0 +1,46 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transfer Student</title>
+    <style>
+        body  { font-family: Arial; background: #f0f2f5; }
+        h2    { background: #2c3e50; color: white; padding: 15px; }
+        .box  { width: 420px; margin: 40px auto; background: white;
+                padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        input { width: 100%; padding: 10px; margin: 8px 0;
+                box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        .btn  { width: 100%; padding: 12px; background: #e67e22; color: white;
+                border: none; border-radius: 4px; font-size: 15px; cursor: pointer; }
+        .btn:hover  { background: #ca6f1e; }
+        .back { display: block; margin-top: 15px; text-align: center; color: #2980b9; }
+        .msg  { padding: 10px; border-radius: 4px; margin-bottom: 15px; font-weight: bold; }
+        .success { background: #d4edda; color: #155724; }
+        .error   { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h2>Transfer Student</h2>
+    <div class="box">
+
+        <% String msg = (String) request.getAttribute("message");
+           if (msg != null) { %>
+            <div class="msg <%= msg.startsWith("SUCCESS") ? "success" : "error" %>">
+                <%= msg %>
+            </div>
+        <% } %>
+
+        <form action="DepartmentServlet" method="post">
+            <input type="hidden" name="action" value="transfer"/>
+            <label>Student ID:</label>
+            <input type="number" name="stuId" placeholder="Enter Student ID" required/>
+            <label>From Department ID:</label>
+            <input type="number" name="fromDeptId" placeholder="Current Department ID" required/>
+            <label>To Department ID:</label>
+            <input type="number" name="toDeptId" placeholder="Target Department ID" required/>
+            <button class="btn" type="submit">Transfer Student</button>
+        </form>
+        <a class="back" href="index.jsp">← Back to Menu</a>
+    </div>
+</body>
+</html>
