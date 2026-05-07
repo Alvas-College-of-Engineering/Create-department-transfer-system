@@ -195,7 +195,4 @@ Alvas College of Engineering
 
 **Alvas College of Engineering**
 [GitHub Organization](https://github.com/Alvas-College-of-Engineering)
-=======
-# Create-department-transfer-system
-Create department transfer system
->>>>>>> 53ec753bff57e9031227a743e17240585920c206
+
